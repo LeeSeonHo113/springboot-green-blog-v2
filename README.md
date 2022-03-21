@@ -1,6 +1,6 @@
 # 블로그 V2 코드 연습
 
-### 디비 및 사용자 생성
+### 1. 디비 및 사용자 생성
 ```sql
 CREATE USER 'green'@'%' IDENTIFIED BY 'password';
 CREATE DATABASE greendb;

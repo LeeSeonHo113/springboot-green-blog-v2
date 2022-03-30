@@ -20,9 +20,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EntityListeners(AuditingEntityListener.class) // 이 부분 추가
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -37,14 +38,13 @@ public class User {
     private String email;
 
     @Column(nullable = false, length = 300)
-    private String addr; // API 주소 라이브러리 사용 할 예정
+    private String addr; // API 주소 라이브러리 사용할 예정
 
     @Column(nullable = true, length = 300)
-    private String profileImg; // 이미지 파일 전송 받아서 서버에 두고, 그 경로를 DB에 저장
+    private String profileImg; // 이미지 파일 전송 받아서 서버에 두고, 그 경로를 디비에 저장
 
-    @CreatedDate // insert 할 때만 동작
+    @CreatedDate
     private LocalDateTime createDate;
-
-    @LastModifiedDate // update 할 때만 동작
+    @LastModifiedDate
     private LocalDateTime updateDate;
 }

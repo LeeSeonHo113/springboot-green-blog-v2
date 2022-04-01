@@ -20,6 +20,11 @@ import site.metacoding.blogv2.domain.post.PostRepository;
 public class PostService {
     private final PostRepository postRepository;
 
+    @Transactional
+    public void 글삭제하기(Integer id) {
+        postRepository.deleteById(id);
+    }
+
     public Post 글상세보기(Integer id) {
         Optional<Post> postOp = postRepository.findById(id);
 
@@ -28,6 +33,10 @@ public class PostService {
         } else {
             throw new RuntimeException("해당 게시글을 찾을 수 없습니다");
         }
+
+        // 조회수 증가
+
+        // 인기 게시물 처리~!!
     }
 
     public Page<Post> 게시글목록(Integer page) {

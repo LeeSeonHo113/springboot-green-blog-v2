@@ -36,8 +36,8 @@ public class PostApiController {
             }
         }
 
-        DetailResponseDto detailResponseDto = new DetailResponseDto(postEntity, auth);
-        return new ResponseDto<>(1, "성공", detailResponseDto);
+        DetailResponseDto detailResponseDto = new DetailResponseDto(postEntity, auth); // comment null
+        return new ResponseDto<>(1, "성공", detailResponseDto); // comment 생성 됨 = MessageConverter
     }
 
     @GetMapping("/api/post")
